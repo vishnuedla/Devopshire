@@ -16,7 +16,7 @@ def homepage():
 
 @app.route('/enquire', methods=['POST'])
 def add_enquiry():
-    email = request.form['email']
+    email = request.form['name']
     description = request.form['description']
 
     conn = connect_to_database()
