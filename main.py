@@ -31,6 +31,7 @@ def add_enquiry():
     conn.commit()
     cur.close()
     conn.close()
+    return f"Thanks {email}, your enquiry has been submitted!"
 
 @app.route('/employee-login.html')
 def employee_login():
