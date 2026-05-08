@@ -14,6 +14,29 @@
     display: block;
     margin: 0 auto;
    }
+
+
+   #contact {
+    display: inline-block;
+    margin: 10px auto;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff; /* DevOps blue */
+    border-radius: 4px;
+}
+
+#contact:hover {
+    background-color: #0056b3; /* darker hover */
+}
+
+#copyright {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #666;
+}
+
  
 </style>
 <body>
@@ -90,17 +113,20 @@
               placeholder="Enter your description here..." required></textarea
 
   </div>
+  <br>
   <input id="submit" type="submit" class="btn btn-primary"
          style="width:100px;align-items: center;" value="Submit"><br><br>
 </form>
 
+
+<hr>
+
+
 <div class="card text-center">
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#contactus" class="btn btn-primary">Contact us</a>    <br>
-
-   
+     <a id ="contact" href="mailto:info@hiredevops.com">Contact Us </a>
+    <p id = "copyright"><p>&copy; 2026 HireDevops. All rights reserved.</p></p>
+    <br>
 <br>
 
 </body>
