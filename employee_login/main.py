@@ -14,7 +14,7 @@ def employee_login_post():
     password = request.form['password']
 
     if verify_employee(username, password):
-        return render_template('admin.html', username=username)
+        return render_template('admin.html')
     else:
         return "Invalid credentials. Please try again."
 
