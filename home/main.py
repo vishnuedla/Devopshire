@@ -1,30 +1,33 @@
 from flask import Flask, render_template , request
-from database import connect_to_database
+from database import connect_to_database , create_database
 
 
 app = Flask(__name__)   
 
+
+
+with app.app_context():
+    create_database()
+
 @app.route('/')
-def home(): 
+@app.route('/home')
+def homepage():
     return render_template('home.html')
 
-
-@app.route('/home.html')
-def homepage(): 
-    return render_template('home.html')
 
 
 @app.route('/enquire', methods=['POST'])
 def add_enquiry():
+     
     email = request.form['email']
     description = request.form['description']
-
+# Insert the enquiry into the database
     conn = connect_to_database()
-    if conn is None:
+    if conn is None:  
         return "Database connection failed"
-
-    cur = conn.cursor()
-    cur.execute(
+    else:
+      cur = conn.cursor()
+      cur.execute(
         "INSERT INTO enquire (email, description) VALUES (%s, %s)",
         (email, description)
     )
@@ -32,8 +35,6 @@ def add_enquiry():
     cur.close()
     conn.close()
     return f"Thanks {email}, your enquiry has been submitted!"
-
-
 
 @app.route('/current-openings.html')
 def current_openings():
