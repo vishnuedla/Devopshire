@@ -16,7 +16,6 @@ phases:
   build:
     commands:
       - echo "Building the image..."
-      - cd home
       - docker build -t vishnu4538/home:latest .
   post_build:
     commands:
