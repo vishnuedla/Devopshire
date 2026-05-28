@@ -1,0 +1,24 @@
+version: 0.2
+
+env:
+  secrets-manager:
+    USERNAME: "dockerdetails:username"
+    PASSWORD: "dockerdetails:password"
+
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies..."
+  pre_build:
+    commands:
+      - echo "Logging in to DockerHub..."
+      - docker login -u $USERNAME -p $PASSWORD
+  build:
+    commands:
+      - echo "Building the image..."
+      - cd home
+      - docker build -t vishnu4538/home:latest .
+  post_build:
+    commands:
+      - echo "Pushing the image to DockerHub..."
+      - docker push vishnu4538/home:latest
